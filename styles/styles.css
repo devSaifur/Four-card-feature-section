@@ -1,0 +1,152 @@
+*,*::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0; /* remove default margin */
+  padding: 0; /* remove default padding */ 
+}
+
+body {
+  line-height: 1.5; /* Add accessible line-height */
+  -webkit-font-smoothing: antialiased; /* Improve text rendering */
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+} /* avoid text overflow */
+
+html, body {
+  height: 100%;
+} /* Allow percentage-based heights in the application */
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+} /* Improve media defaults */
+
+input, button, textarea, select {
+  font: inherit;
+} /* Remove built-in form typography styles */
+
+#root, #__next {
+    isolation: isolate;
+} /* Create a root stacking context */
+
+:root {
+  --fs-base: 0.938rem;
+  --fw-light: 200;
+  --fw-medium: 400;
+  --fw-semibold: 600;
+
+  --clr-primary: hsl(234, 12%, 34%);
+  --clr-secondary: hsl(229, 6%, 66%);
+
+  --bg-cyan: hsl(180, 62%, 55%);
+  --bg-red: hsl(0, 78%, 62%);
+  --bg-orange: hsl(34, 97%, 64%);
+  --bg-blue: hsl(212, 86%, 64%);
+  --bg-white: hsl(0, 0%, 98%);
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.938rem;
+  padding: 2.5rem;
+}
+main {
+  display: grid;
+  margin-inline: auto;
+}
+header {
+  display: grid;
+  max-width: 32rem;
+  margin-inline: auto;
+  text-align: center;
+  row-gap: 1rem;
+}
+header h1 {
+  font-size: 1.5rem;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-primary);
+}
+.light-h1 {
+  font-weight: var(--fw-light);
+}
+header p {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--clr-secondary);
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  margin-block: 4rem 2rem;
+  row-gap: 1.5rem;
+  margin-inline: auto;
+}
+.cards h2  {
+  font-size: 1.2rem;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-primary);
+}
+.cards p {
+  font-size: 0.75rem;
+  font-weight: var(--fw-light);
+  color: var(--clr-secondary);
+  margin-top: 0.25rem;
+}
+.card-1,
+.card-2,
+.card-3,
+.card-4 {
+  display: grid;
+  max-width: 28.125rem;
+  padding-inline: 1.5rem;
+  padding-top: 1.5rem;
+  border-radius: 0.5rem;
+  border-top: 0.25rem solid;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(44, 163, 233, 0.3) 0px 8px 16px -8px;
+}
+.card-1 {
+  border-top-color: var(--bg-cyan);
+}
+.card-2 {
+  border-top-color: var(--bg-red);
+}
+.card-3 {
+  border-top-color: var(--bg-orange);
+}
+.card-4 {
+  border-top-color: var(--bg-blue);
+}
+.cards img {
+  max-width: 3rem;
+  margin-inline: auto 0;
+  margin-block: 2rem;
+}
+.desktop-row {
+  display: grid;
+  row-gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.5rem;
+  }
+  .card-1,
+  .card-2,
+  .card-3,
+  .card-4 {
+    min-height: 16rem;
+    max-width: 21.5rem;
+    row-gap: 0.5rem;
+  }
+  .card-1,
+  .card-4 {
+    margin-block: auto;
+  }
+  header h1 {
+    font-size: 1.7rem;
+  }
+}
